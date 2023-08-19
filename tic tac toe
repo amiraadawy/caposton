@@ -1,0 +1,65 @@
+lst=[[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
+ def pgame(lst):
+        for item in lst :
+           print( item[0],'|',item[1],'|',item[2])
+
+def tie(lst):
+    for row in lst:
+        for i in row:
+            if i==' ':
+                return True
+    else:
+        return False
+def check(lst,player):
+    w=True
+    #check rows
+    for i in range(0,3):
+        w=True
+        for j in range (0,3):
+            if lst[i][j]!=player:
+                w=False
+            
+    if w==True:
+        return w
+    #check col
+    for i in range(0,3):
+        w=True
+        for j in range (0,3):
+            if lst[j][i]!=player:
+                w=False
+      
+    if w==True:
+        return w
+    w=True
+    #check diagonals
+    for i in range(0,3):
+        if lst[i][i] != player:
+            return False 
+        
+    else: return w
+pgame(lst)
+player='o'
+while True:
+    f=1
+    if(player=='o'):
+        player='x'
+    else: player='o'
+    while(f!=0):
+        print('player_{}_choice your move (0->2)'.format(player))
+        r=int(input('row '))
+        c=int(input('colum '))
+        if(r>2 or c>2 or r<0 or c<0):
+                print('invalid chioce')
+        elif(lst[r][c]!=' '):
+                print('choice empty palce PLs')
+        else:
+            f=0
+    lst[r][c]=player
+    pgame(lst)
+    if(tie(lst)==False):
+        print('match the game')
+        break
+    if(check(lst,player)==True):
+        print('player_{}_ wins the game'.format(player))
+        break
+    
