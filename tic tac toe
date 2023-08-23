@@ -1,6 +1,6 @@
 lst=[[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]
- def pgame(lst):
-        for item in lst :
+def pgame(lst):
+    for item in lst :
            print( item[0],'|',item[1],'|',item[2])
 
 def tie(lst):
@@ -18,7 +18,7 @@ def check(lst,player):
         for j in range (0,3):
             if lst[i][j]!=player:
                 w=False
-            
+
     if w==True:
         return w
     #check col
@@ -27,7 +27,7 @@ def check(lst,player):
         for j in range (0,3):
             if lst[j][i]!=player:
                 w=False
-      
+
     if w==True:
         return w
     w=True
@@ -35,7 +35,7 @@ def check(lst,player):
     for i in range(0,3):
         if lst[i][i] != player:
             return False 
-        
+
     else: return w
 pgame(lst)
 player='o'
@@ -62,4 +62,3 @@ while True:
     if(check(lst,player)==True):
         print('player_{}_ wins the game'.format(player))
         break
-    
